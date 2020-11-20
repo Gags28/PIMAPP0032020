@@ -1,17 +1,31 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+
+        <ion-title>
+            Home
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-button expand="block" color="primary" [routerLink]="['/add']"> Adicionar Usuários </ion-button>
+
+    <ion-card *ngFor="let i of usuarios">
+        <ion-card-header>
+            <ion-card-subtitle> {{ i.email }} </ion-card-subtitle>
+            <ion-card-title>{{ i.nome }} </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-button [routerLink]="['/edit']" size="small" color="primary" style="margin-right: 15px">
+                <ion-icon name="create"></ion-icon>
+            </ion-button>
+            <ion-button (click)="presentAlert()" size="small" color="danger">
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-card-content>
+
+    </ion-card>
+
 </ion-content>

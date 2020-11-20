@@ -9,18 +9,51 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+
 /* Core CSS required for Ionic components to work properly */
+
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
+
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
 @import '~@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
+
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/float-elements.css";
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+ion-title {
+    position: relative;
+    width: max-content;
+    font-weight: bolder;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 15px;
+        width: 50%;
+        height: 2px;
+        border-radius: 15px;
+        background-color: #fff;
+    }
+}
+
+ion-button {}
+
+ion-button[expand="block"] {
+    width: calc(100% - 40px);
+    margin: 30px auto;
+    height: 50px;
+    --border-radius: 15px;
+}
+
+.voltar {
+    font-size: 25px;
+    padding-left: 20px;
+}
