@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-
+import { RequestService } from 'src/app/services/request.service'
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -8,18 +8,21 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab1Page {
 
-  public usuarios = [
-    {
-      nome: 'Gabriel Gonçalves',
-      email: 'gagsilva28@gmail.com'
-    },
-    {
-      nome: 'Lucaz Denadai',
-      email: 'lucaz@gmai.com'
-    }
-  ]
+  public usuarios
 
-  constructor(public alertController: AlertController) {}
+  constructor(
+    public alertController: AlertController,
+    public requestService: RequestService,
+  ) { }
+
+  ngOnInit() {
+    this.requestService.get('cliente').then(data => {
+      console.log(data)
+      this.usuarios = data
+    }).catch(err => {
+      console.log(err)
+    })
+  }
 
   async presentAlert() {
     const alert = await this.alertController.create({

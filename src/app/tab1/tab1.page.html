@@ -9,16 +9,14 @@
 
 <ion-content [fullscreen]="true">
 
-    <ion-button expand="block" color="primary" [routerLink]="['/add']"> Adicionar Usuários </ion-button>
-
     <ion-card *ngFor="let i of usuarios">
         <ion-card-header>
-            <ion-card-subtitle> {{ i.email }} </ion-card-subtitle>
-            <ion-card-title>{{ i.nome }} </ion-card-title>
+            <ion-card-subtitle> {{ i.Email }} </ion-card-subtitle>
+            <ion-card-title>{{ i.NomCli }} </ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
-            <ion-button [routerLink]="['/edit']" size="small" color="primary" style="margin-right: 15px">
+            <ion-button routerLink="/edit/{{i.IdCliente}}" routerDirection="forward" size="small" color="primary" style="margin-right: 15px">
                 <ion-icon name="create"></ion-icon>
             </ion-button>
             <ion-button (click)="presentAlert()" size="small" color="danger">
