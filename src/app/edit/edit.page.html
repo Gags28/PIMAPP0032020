@@ -9,25 +9,43 @@
 </ion-header>
 
 <ion-content>
-    <ion-item>
-        <ion-label position="floating">Usuário</ion-label>
-        <ion-input [value]="usuario.NomCli"></ion-input>
-    </ion-item>
 
-    <ion-item>
-        <ion-label position="floating">E-mail</ion-label>
-        <ion-input [value]="usuario.Email"></ion-input>
-    </ion-item>
+    <form [formGroup]="usuarioForm">
 
-    <ion-item>
-        <ion-label position="floating">Senha</ion-label>
-        <ion-input type="password"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-label position="floating">Usuário</ion-label>
+            <ion-input [(ngModel)]="nome" formControlName="nome" [value]="usuario.NomCli"></ion-input>
+        </ion-item>
 
-    <ion-item>
-        <ion-label position="floating">Confirmar Senha</ion-label>
-        <ion-input type="password"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-label position="floating">E-mail</ion-label>
+            <ion-input [(ngModel)]="email" formControlName="email" [value]="usuario.Email"></ion-input>
+        </ion-item>
 
-    <ion-button expand="block" color="primary"> Salvar </ion-button>
+        <ion-item>
+            <ion-label position="floating">CPF</ion-label>
+            <ion-input [(ngModel)]="cpfcnpj" formControlName="cpfcnpj" [value]="usuario.CpfCnpj"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Telefone</ion-label>
+            <ion-input [(ngModel)]="telcli_01" formControlName="telcli_01" [value]="usuario.TelCli_01"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Celular</ion-label>
+            <ion-input [(ngModel)]="telcli_02" formControlName="telcli_02" [value]="usuario.TelCli_02"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label position="floating">Data de nascimento</ion-label>
+            <ion-input [(ngModel)]="datanascimento" formControlName="datanascimento" [value]="usuario.DataNascimento"></ion-input>
+        </ion-item>
+
+        <div class="aviso-form"> {{aviso}} </div>
+
+        <ion-button (click)="save()" expand="block" color="primary"> Salvar </ion-button>
+
+    </form>
 </ion-content>

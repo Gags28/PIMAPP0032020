@@ -19,7 +19,7 @@
             <ion-button routerLink="/edit/{{i.IdCliente}}" routerDirection="forward" size="small" color="primary" style="margin-right: 15px">
                 <ion-icon name="create"></ion-icon>
             </ion-button>
-            <ion-button (click)="presentAlert()" size="small" color="danger">
+            <ion-button (click)="presentAlert(i.IdCliente)" size="small" color="danger">
                 <ion-icon name="close"></ion-icon>
             </ion-button>
         </ion-card-content>

@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class RequestService {
 
-  private url: string = 'http://adspim-com-br.umbler.net/';
+  private url: string = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) { }
 
@@ -18,9 +18,40 @@ export class RequestService {
         }).catch(err => {
           reject(err)
         })
-
     })
+  }
 
+  post(path, body = {}): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url + path, body).toPromise()
+        .then((data) => {
+          resolve(data)
+        }).catch(err => {
+          reject(err)
+        })
+    })
+  }
+
+  delete(path, body = {}): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.http.delete(this.url + path, body).toPromise()
+        .then((data) => {
+          resolve(data)
+        }).catch(err => {
+          reject(err)
+        })
+    })
+  }
+
+  put(path, body = {}): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.http.put(this.url + path, body).toPromise()
+        .then((data) => {
+          resolve(data)
+        }).catch(err => {
+          reject(err)
+        })
+    })
   }
 
 }
